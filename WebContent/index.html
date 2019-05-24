@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ons-input {
+  width:100% !important;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)
+.list-header {
+    background-image: linear-gradient(180deg,#ccc,#ccc 50%,transparent 50%);
+}
+     select {
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 2 2 2 2px!important;
+   border: 1px solid #ccc !important;
+    border-radius: 5px !important;;
+     margin: 10px !important;
+    
+  text-align: center !important;
+  text-align-last: center !important;
+     }
+
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+
+<script src="resources/js/app.js"></script>
+</head>
+<body>
+	<ons-splitter> <ons-splitter-side id="menu" side="left"
+		width="220px" collapse swipeable> <ons-page>
+	<ons-list> <ons-list-item onclick="fn.load('freeze.html')"
+		tappable> Freeze Account </ons-list-item> <ons-list-item
+		onclick="fn.load('replaceCard.html')" tappable>
+	Replace Card </ons-list-item> </ons-list> </ons-page> </ons-splitter-side> <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+	</ons-splitter>
+
+	<template id="home.html"> <ons-page> <ons-toolbar>
+	<div class="left">
+		<ons-toolbar-button onclick="fn.open()"> <ons-icon
+			icon="md-menu"></ons-icon> </ons-toolbar-button>
+	</div>
+	<div class="center">Main</div>
+	</ons-toolbar>
+	<p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+		Swipe right to open the menu!</p>
+	</ons-page> </template>
+<!-- Form for freezing a card -->
+	<template id="freeze.html"> <ons-page> <ons-toolbar>	
+	<div class="left">
+		<ons-toolbar-button onclick="fn.open()"> <ons-icon
+			icon="md-menu"></ons-icon> </ons-toolbar-button>
+	</div>
+	<div class="center">Freeze Card</div>
+	</ons-toolbar>
+	<ons-list>
+
+ <ons-list-item>
+ <div class="center">
+       Choose Account
+      </div>
+       <div class="right">
+ <ons-select id="accountID" >
+    <option value="012345">Primary Card</option>
+  </ons-select>
+  </div>
+  </ons-list-item>
+    <ons-list-item>
+      <div class="center">
+        Unlock/Lock Card
+      </div>
+      <div class="right">
+        <ons-switch checked id="freezeCreditFlag"></ons-switch>
+      </div>
+    </ons-list-item>
+ <ons-list-item>
+ <ons-button  onclick="freezeCard()" type="Submit">Submit</ons-button>
+  </ons-list-item>
+    </ons-list>
+
+	</ons-page> </template>
+
+<!-- Form for replacing a card -->
+	<template id="replaceCard.html"> <ons-page> <ons-toolbar>
+	<div class="left">
+		<ons-toolbar-button onclick="fn.open()"> <ons-icon
+			icon="md-menu"></ons-icon> </ons-toolbar-button>
+	</div>
+	<div class="center">Replace Card</div>
+	</ons-toolbar> 	
+	<ons-list>
+	<p>
+	<div class="center"> Reason for	replacement</div>
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-radio name="color" input-id="radio-1" checked></ons-radio>
+      </label>
+      <label for="radio-1" class="center">Lost</label>
+    </ons-list-item>
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-radio name="color" input-id="radio-2"></ons-radio>
+      </label>
+      <label for="radio-2" class="center">Stolen </label>
+    </ons-list-item>
+     <ons-list-item tappable>
+      <label class="left">
+        <ons-radio name="color" input-id="radio-1" checked></ons-radio>
+      </label>
+      <label for="radio-1" class="center"> Damaged </label>
+    </ons-list-item>
+ <ons-list-item>
+ <div class="center">
+       Choose Account
+      </div>
+       <div class="right">
+ <ons-select id="accountID" >
+    <option value="012345">Primary Card</option>
+  </ons-select>
+  </div>
+  </ons-list-item>
+  <ons-list-item>
+   <label for="comment">Comments</label>
+<ons-input input-id="comment" type="text"></ons-input>
+</ons-list-item>
+  <ons-list-item>
+   <ons-button  onclick="replaceCard()" id ="replaceSubmitBtn">Submit</ons-button>
+   </ons-list-item>
+  </ons-list>
+
+	</ons-page>
+	</template>
+
+
+</body>
+
+
+</html>
+
+
